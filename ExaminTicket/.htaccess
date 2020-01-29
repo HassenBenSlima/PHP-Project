@@ -1,0 +1,17 @@
+RewriteEngine on
+Options +FollowSymlinks
+RewriteCond %{HTTP_REFERER} !^http://localhost|http://127.0.0.1|https://localhost|https://127.0.0.1
+RewriteRule ^.*\.png|jpg|gif|css|js$ - [F]
+
+ErrorDocument 404 http://127.0.0.1/ExaminTicket/404.htm
+
+#RewriteRule ^(.*)_([a-z1-9]+)_([a-z1-9]_+)\.html$ index.php?controller=$1&action=$2 [L]
+#RewriteRule ^(.*)_([a-z1-9]+)_([a-z1-9]+)-([1-9]+)\.html$ index.php?controller=$2&action=$3&id_voit=$4 [L]
+#RewriteRule ^(.*)\.html$ index.php [L]
+
+
+
+AuthName "Authentification!"
+AuthType Basic
+AuthUserFile "C:/wamp64/www/ExaminTicket/.htpasswd"
+Require valid-user
